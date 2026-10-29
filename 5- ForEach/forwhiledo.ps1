@@ -21,7 +21,7 @@ Get-Date
 while ((get-Date).Minute -eq 32) {
     Write-Host "Current time: $(get-Date)"
 }
-
+## While loop will continue to execute the code block as long as the condition is true. In this case, it will keep printing the current time until the minute is no longer 32.
 Write-Output "Welcome to the Do While loop"
 Write-output "Press q to Quit"
 $input = Read-Host "Enter your choice: "
@@ -29,3 +29,23 @@ While ($input -ne 'q') {
     Write-Output "You entered: $input"
     $input = Read-Host "Enter your choice: "
 }
+
+Write-Output "Welcome to the Do While loop"
+Write-output "Press q to Quit"
+## Well for sure execute the code block at least once, and then check the condition. If the condition is true, it will continue to execute the code block until the condition is false.
+do {
+    $input = Read-Host "Enter your choice: "
+    if ($input -ne 'q') {
+        Write-Output "You entered: $input"
+    }
+} While ($input -ne 'q') ## Will be false when the user enters 'q', and the loop will exit.
+ 
+Write-Output "Welcome to the Do While loop"
+Write-output "Press q to Quit"
+## Do-Until loop will execute the code block at least once, and then check the condition. If the condition is false, it will continue to execute the code block until the condition is true.
+do {
+    $input = Read-Host "Enter your choice: "
+    if ($input -ne 'q') {
+        Write-Output "You entered: $input"
+    }
+} until ($input -eq 'q') ## Will be true when the user enters 'q', and the loop will exit.
