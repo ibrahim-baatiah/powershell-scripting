@@ -1,8 +1,24 @@
+###################################
+####### Functions / Methods #######
+###################################
+
+<#
+    For functions in PowerShell to work with the pipeline as expected, ensure the Function has:
+    Block 1: Begin
+    Block 2: Process
+    Block 3: End
+#>
 function Create-Configuration {
     [CmdletBinding()]
-    param ( ## Params is simple the parameters, unlike Python for examlpe where you define them outside (def config(param1, param2)). In PowerShell you define them within.
-        [Parameter(Mandatory, ValueFromPipeline)] ## Mandatory, you have to choose a value when writing the cmdlet, or you will be prompted in the terminal.
-        [string]$Name, ## By default, Functions don't accepts pipline values, in order for it to work you need to allow them from the specifc Param.
+    param (
+        <#
+            Params are simply the parameters. Unlike Python for example, where you define them outside (def config(param1, param2)),
+            in PowerShell you define them within.
+        #>
+        ## Mandatory: you have to choose a value when writing the cmdlet, or you will be prompted in the terminal.
+        ## By default, Functions don't accept pipeline values. In order for it to work, you need to allow them on the specific Param.
+        [Parameter(Mandatory, ValueFromPipeline)]
+        [string]$Name,
         [Parameter()]
         [string]$Version="1.0.0",
         [Parameter(Mandatory)]
@@ -37,7 +53,7 @@ function Create-Configuration {
 
     end {
         Write-Verbose "End block."
-        Write-Output "Configuration create: $CounterPassed , Configuration failed: $CounterFailed"
+        Write-Output "Configuration created: $CounterPassed , Configuration failed: $CounterFailed"
     }
 }
 
@@ -51,15 +67,10 @@ $ConfigPath = "C:\Users\azureuser\Developer\Powershell\Methods\configs"
 
 $Names=@("TestConfig1", "TestConfig2", "TestConfig3", "TestConfig4")
 
+<#
+    Debug & Verbose
+    Verbose is just really telling the user what's going on.
+    Debug, same thing... but for a different purpose.
+    Verbose is to tell the user the steps that were taken, Debug is to inform on errors.
+#>
 $Names | Create-Configuration -Path $ConfigPath -Verbose -Debug
-
-
-## Debug & Verbose
-## Verbose it just really telling the user what's going on.
-## Debug, same thing... but for different porpuse
-## Verbose is to tell the user the steps that were taken, debut is to inform on errors. 
-
-## Fucntions in PowerShell with pipline to work as expected, ensure the Function has:
-## Block 1: Begin 
-## Block 2: Process
-## Block 3: End

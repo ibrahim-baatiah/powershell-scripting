@@ -1,6 +1,8 @@
-########################
-## Array vs ArrayList ##
-########################
+##################################
+####### Array vs ArrayList #######
+##################################
+
+##### Array #####
 
 $myArray=@("Test1", "Test2", "Test3")
 $myArray.GetType() ## System.Array
@@ -8,18 +10,17 @@ $myArray.IsFixedSize ## True
 
 $myArray.Count
 $myArray.Length
-$myArray ## Print the whole array
+$myArray ## Prints the whole array
 
-$myArray[1] ## Print element by index
+$myArray[1] ## Prints an element by index
 
-## 2 Ways to add new things:
+## 2 ways to add new things:
 $myArray=$myArray+"Test4"
-
 $myArray+="Test5"
 
-$myArray ## Inlcudes Test4 and 5
+$myArray ## Includes Test4 and 5
 
-## Remove item
+## Remove an item
 $myArray=$myArray -ne "Test2" ## -ne -> Not equal -> !=
 
 $myArray
@@ -28,19 +29,26 @@ $myArray
 ##### ArrayList #####
 
 $myList1=[System.Collections.ArrayList]@() ## This is the bad way of creating it
-$myList=New-Object -TypeName System.Collections.ArrayList ## This is a good way.
+$myList=New-Object -TypeName System.Collections.ArrayList ## This is a good way
 
 $myList1.GetType()
-$myList.GetType() ## Both the same
+$myList.GetType() ## Both are the same
 
-## Here we can use the add() method.
-$myList.add("Test1") ## Normally the fuction returns the index of the new added item.
-[void]$myList.add("Test2") ## To prevent that you cast it to void (I guess you cast the return type of the method to void).
+<#
+    Here we can use the Add() method.
+    Normally the function returns the index of the newly added item.
+    To prevent that, you cast it to void (I guess you cast the return type of the method to void).
+#>
+$myList.add("Test1")
+[void]$myList.add("Test2")
 $myList.AddRange(@("Test3", "Test4", "Test5", "Test2")) ## Adds multiple items at once
 
-$myList.Remove("Test2") ## Remove, only removes the 1st instance of the item
-$myList.RemoveAt() ## Remvoes at index
-$myList.RemoveRange() ## Takes starting & ending index. Remvoes everthing including the starting and finishing points.
+$myList.Remove("Test2") ## Remove only removes the 1st instance of the item
+$myList.RemoveAt() ## Removes at index
+$myList.RemoveRange() ## Takes starting & ending index. Removes everything, including the starting and finishing points.
+
+
+##### Speed Test #####
 
 $array=@()
 Measure-Command -Expression {

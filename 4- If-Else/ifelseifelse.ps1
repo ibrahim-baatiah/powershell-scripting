@@ -2,27 +2,29 @@
 ####### If Else #######
 #######################
 
-## Not all normal operators works in Powershell
-## 1 < 2 doesn't work
-## 1 == 2 also doesn't work
+<#
+    Not all normal operators work in PowerShell:
+    1 < 2 doesn't work
+    1 == 2 also doesn't work
 
-## So, how to use conditions in Powershell?
-## You can add a dash "-" and a whole list of operators will show up
-1 -eq 1 # Equals
-1 -lt 2 # Less than
-1 -le 2 # Less than or equals too
-2 -gt 1 # Greater than
-2 -ge 2 # Greater or equals too
-1 -ne 3 # Not equal
+    So, how to use conditions in PowerShell?
+    You can add a dash "-" and a whole list of operators will show up.
+#>
+1 -eq 1 ## Equals
+1 -lt 2 ## Less than
+1 -le 2 ## Less than or equal to
+2 -gt 1 ## Greater than
+2 -ge 2 ## Greater than or equal to
+1 -ne 3 ## Not equal
 
 Write-Output("#####################################################")
 
 @(1,2,3) -contains 2
-@("Test", "test") -contains 'TEST' # Contains is not case sensitive - True
+@("Test", "test") -contains 'TEST' ## Contains is not case sensitive - True
 @("Test", "test") -ccontains 'TEST' ## C-Contains is case sensitive - False
 
-'Test' -eq "TEST" # True - Not Case sensitive
-'Test' -ceq "TEST" # False - Case sensitive
+'Test' -eq "TEST" ## True - Not case sensitive
+'Test' -ceq "TEST" ## False - Case sensitive
 
 Write-Output("#####################################################")
 
@@ -42,5 +44,5 @@ if (Test-Path -Path $filePath) {
     }
     Write-Output "This is after the if statement"
 } else {
-    Write-Output "File $filePath does not exist!" ## You can use variables only inside douple quotes.
+    Write-Output "File $filePath does not exist!" ## You can use variables only inside double quotes.
 }

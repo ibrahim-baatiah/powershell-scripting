@@ -1,5 +1,8 @@
-## Here I just went throght installing Powershell 7, set up the extension on VS code, and running a few commands.
+############################
+####### Introduction #######
+############################
 
+## Here I just went through installing PowerShell 7, setting up the extension on VS Code, and running a few commands.
 
 Get-Command -Noun Service
 

@@ -1,6 +1,8 @@
-#################################
-## HashTables & Custom Objects ##
-#################################
+###########################################
+####### HashTables & Custom Objects #######
+###########################################
+
+##### HashTables #####
 
 $myHashTable=@{
     key1=100
@@ -10,34 +12,32 @@ $myHashTable=@{
     key3=$true
 }
 
-## $myHashTable.GetType()
+# $myHashTable.GetType()
 # $myHashTable.Keys ## Get keys
 # $myHashTable.Values ## Get values
 
-$myHashTable.apple # Get Value from a key.
-$myHashTable['key3'] ## Same thing different way. Get value from a key
+$myHashTable.apple ## Get a value from a key
+$myHashTable['key3'] ## Same thing, different way. Get a value from a key
 
-$myHashTable.ContainsKey('key4') # False, checks if key exists
-$myHashTable.ContainsValue(2.34) # True, checks if value exist
+$myHashTable.ContainsKey('key4') ## False, checks if a key exists
+$myHashTable.ContainsValue(2.34) ## True, checks if a value exists
 
 $myHashTable.Add('test5', 55)
 $myHashTable['test6'] = "Another way of adding items"
-$myHashTable.test7="Another way to add, this is 3 methods to add items to a HashTable"
+$myHashTable.test7="Another way to add, these are 3 methods to add items to a HashTable"
 
 $myHashTable
 $true
-$myHashTable.apple=0.5 ## Change 
+$myHashTable.apple=0.5 ## Change
 $myHashTable
 $true
 $myHashTable.apple="Apple"
 $myHashTable
 $true
-$myHashTable.Remove('apple') # Remove
+$myHashTable.Remove('apple') ## Remove
 
 
-#####################################
-############## Objects ##############
-#####################################
+##### Objects #####
 
 $employee1=New-Object -TypeName PSCustomObject
 
@@ -57,4 +57,3 @@ $employee2=[PSCustomObject]@{
 }
 
 $employee2
-

@@ -1,8 +1,18 @@
+############################################
+####### Functions / Methods (Part 2) #######
+############################################
+
 function Create-Configuration {
     [CmdletBinding()]
-    param ( ## Params is simple the parameters, unlike Python for examlpe where you define them outside (def config(param1, param2)). In PowerShell you define them within.
-        [Parameter(Mandatory, ValueFromPipeline, ValueFromPipelineByPropertyName)] ## Mandatory, you have to choose a value when writing the cmdlet, or you will be prompted in the terminal.
-        [string]$Name, ## By default, Functions don't accepts pipline values, in order for it to work you need to allow them from the specifc Param.
+    param (
+        <#
+            Params are simply the parameters. Unlike Python for example, where you define them outside (def config(param1, param2)),
+            in PowerShell you define them within.
+        #>
+        ## Mandatory: you have to choose a value when writing the cmdlet, or you will be prompted in the terminal.
+        ## By default, Functions don't accept pipeline values. In order for it to work, you need to allow them on the specific Param.
+        [Parameter(Mandatory, ValueFromPipeline, ValueFromPipelineByPropertyName)]
+        [string]$Name,
         [Parameter(ValueFromPipelineByPropertyName)]
         [string]$Version="1.0.0",
         [Parameter(Mandatory)]
@@ -35,7 +45,7 @@ function Create-Configuration {
     }
     end {
         Write-Verbose "End block."
-        Write-Output "Configuration create: $CounterPassed , Configuration failed: $CounterFailed"
+        Write-Output "Configuration created: $CounterPassed , Configuration failed: $CounterFailed"
     }
 }
 $ConfigPath = "C:\Users\azureuser\Developer\Powershell\Methods\configs"
@@ -49,6 +59,6 @@ $ConfigPath = "C:\Users\azureuser\Developer\Powershell\Methods\configs"
 
 # $IISServer | Create-Configuration -Path $ConfigPath
 
-## For import CSV, by default the Delimiter is "," so if you have something else you can specify, otherwise you don't need to include it.
+## For Import-Csv, by default the Delimiter is ",", so if you have something else you can specify it, otherwise you don't need to include it.
 $Servers = Import-Csv -Path "C:\Users\azureuser\Developer\Powershell\Methods\servers.csv" -Delimiter ","
 $Servers | Create-Configuration -Path $ConfigPath -Verbose

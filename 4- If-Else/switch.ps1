@@ -1,3 +1,7 @@
+######################
+####### Switch #######
+######################
+
 $filePath=".\If-Else\Data\test.txt"
 
 $data=Get-Content -Path $filePath
