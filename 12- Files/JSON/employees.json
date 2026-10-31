@@ -1,0 +1,37 @@
+{
+  "Employee": [
+    {
+      "id": 1,
+      "firstName": "John",
+      "lastName": "Smith",
+      "samAccountName": "jsmith",
+      "title": "Engineer",
+      "department": "IT",
+      "email": "jsmith@corp.local",
+      "city": "Warsaw",
+      "country": "PL"
+    },
+    {
+      "id": 2,
+      "firstName": "Anna",
+      "lastName": "Kowalska",
+      "samAccountName": "akowalska",
+      "title": "Manager",
+      "department": "HR",
+      "email": "akowalska@corp.local",
+      "city": "Berlin",
+      "country": "DE"
+    },
+    {
+      "id": 3,
+      "firstName": "Mark",
+      "lastName": "Brown",
+      "samAccountName": "mbrown",
+      "title": "Analyst",
+      "department": "Finance",
+      "email": "mbrown@corp.local",
+      "city": "New York",
+      "country": "US"
+    }
+  ]
+}

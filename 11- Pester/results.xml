@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<test-results xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="nunit_schema_2.5.xsd" name="Pester" total="1" errors="0" failures="1" not-run="0" inconclusive="0" ignored="0" skipped="0" invalid="0" date="2026-10-31" time="14:13:35">
+  <environment machine-name="IBRAHIM-A5VN6TV" cwd="C:\Users\ibrahim\Developer\Poweshell" user-domain="IBRAHIM-A5VN6TV" platform="Microsoft Windows 10 Enterprise LTSC|C:\Windows|\Device\Harddisk0\Partition3" user="ibrahim" nunit-version="2.5.8.0" os-version="10.0.19044" clr-version="" />
+  <culture-info current-culture="en-US" current-uiculture="en-US" />
+  <test-suite type="Powershell" name="Pester" executed="True" result="Failure" success="False" time="1.7527" asserts="0">
+    <results>
+      <test-suite type="TestFixture" name="Testing services on the server" executed="True" result="Failure" success="False" time="1.7527" asserts="0" description="Testing services on the server">
+        <results>
+          <test-case description="Making sure print spooler is stopped" name="Testing services on the server.Making sure print spooler is stopped" time="1.7527" asserts="0" success="False" result="Failure" executed="True">
+            <failure>
+              <message>String lengths are both 7. Strings differ at index 0.
+Expected: {Stopped}
+But was:  {Running}
+-----------^</message>
+              <stack-trace>at line: 13 in C:\Users\ibrahim\Developer\Poweshell\Pester\pestertest.ps1
+13:             $Service.status | Should be 'Stopped'
+</stack-trace>
+            </failure>
+          </test-case>
+        </results>
+      </test-suite>
+    </results>
+  </test-suite>
+</test-results>
